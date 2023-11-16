@@ -1,0 +1,10 @@
+// validation.js
+
+export const validation = {
+  // Define your validation functions here
+  // Example: 
+  // isEmailValid(email) {
+  //   // Implement email validation logic
+  //   return /\S+@\S+\.\S+/.test(email);
+  // },
+};

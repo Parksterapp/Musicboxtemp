@@ -1,0 +1,33 @@
+// Get all songs
+async function getSongs(req, res) {
+  // ...
+} 
+
+// Get single song
+async function getSong(req, res) {
+  // ...
+}
+
+// Create song 
+async function createSong(req, res) {
+  // ...  
+}
+
+// Update song
+async function updateSong(req, res) {
+  // ...
+}
+
+// Delete song
+async function deleteSong(req, res) {
+  // ...
+}
+
+// Exports
+module.exports = {
+  getSongs,
+  getSong,
+  createSong,
+  updateSong,
+  deleteSong
+}

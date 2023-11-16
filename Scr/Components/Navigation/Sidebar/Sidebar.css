@@ -1,0 +1,56 @@
+/* Your Sidebar styling here */
+.sidebar {
+  background-color: #333;
+  color: white;
+  width: 250px;
+}
+
+.sidebar-header {
+  padding: 20px;
+  text-align: center;
+}
+
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-link {
+  padding: 10px;
+}
+
+.sidebar-footer {
+  padding: 20px;
+  text-align: center;
+}
+
+.navbar {
+  background-color: #555;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-link {
+  margin: 0 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-menu-toggler {
+  display: none;
+}
+
+/* Add any other styles you need */

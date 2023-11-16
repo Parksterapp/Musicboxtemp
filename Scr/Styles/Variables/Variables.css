@@ -1,0 +1,9 @@
+/* variables.css */
+:root {
+  /* Define your custom CSS variables (CSS custom properties) here */
+  --primary-color: #007bff; /* Example primary color */
+  --secondary-color: #6c757d; /* Example secondary color */
+  --font-family: Arial, sans-serif; /* Example font family */
+}
+
+/* You can use these variables in other CSS files */

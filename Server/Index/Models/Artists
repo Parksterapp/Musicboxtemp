@@ -1,0 +1,11 @@
+// artist.js
+
+const mongoose = require('mongoose');
+
+const ArtistSchema = new mongoose.Schema({
+  name: String,
+  genre: String,
+  albums: [AlbumSchema] 
+});
+
+module.exports = mongoose.model('Artist', ArtistSchema);

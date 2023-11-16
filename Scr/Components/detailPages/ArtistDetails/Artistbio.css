@@ -1,0 +1,33 @@
+.artist-bio {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bio-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.bio-content {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.expand-button {
+  margin-top: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.expand-button:hover {
+  background-color: #0056b3;
+}

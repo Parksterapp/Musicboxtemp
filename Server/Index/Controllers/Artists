@@ -1,0 +1,26 @@
+// artists.js
+
+const Artist = require('../models/artist');
+
+// @desc Get single artist
+// @route GET /api/artists/:id
+async function getArtist(req, res) {
+  try {
+    const artist = await Artist.findById(req.params.id);
+
+    if (!artist) {
+      return res.status(404).json({message: 'Artist not found'});
+    }
+
+    res.json(artist);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({message: 'Server error'}); 
+  }
+}
+
+// Exports
+module.exports = {
+  getArtist
+  // etc
+}

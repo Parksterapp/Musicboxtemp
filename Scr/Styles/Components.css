@@ -1,0 +1,13 @@
+/* components.css */
+
+/* Define styles for individual components */
+.button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Example style for buttons */

@@ -1,0 +1,16 @@
+.playlist-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  background-color: #f9f9f9;
+}
+
+.playlist-title {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.playlist-owner {
+  font-size: 1rem;
+  color: #777;
+}

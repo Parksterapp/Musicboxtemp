@@ -1,0 +1,13 @@
+/* Styles for Event Listing */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.event-card {
+  width: 300px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  margin-bottom: 16px;
+}

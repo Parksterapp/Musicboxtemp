@@ -1,0 +1,14 @@
+/* Your NavLinks styling here */
+.nav-links {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-link {
+  padding: 10px;
+  text-align: center;
+  background-color: #444;
+  color: white;
+}
+
+/* Add any other styles you need */

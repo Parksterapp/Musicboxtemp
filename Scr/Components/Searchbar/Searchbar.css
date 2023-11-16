@@ -1,0 +1,15 @@
+.search-bar {
+  display: flex;
+  margin: 20px 0;
+  input {
+    flex: 1;
+    padding: 10px;
+  }
+  button {
+    background-color: #0074d9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,31 @@
+.album-details {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.album-cover {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.album-info {
+  flex: 1;
+}
+
+.album-title {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.album-artist {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.album-release-year {
+  font-size: 1rem;
+  color: #777;
+  }

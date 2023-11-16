@@ -1,0 +1,15 @@
+.volume-control {
+  display: flex;
+  align-items: center;
+  width: 100px;
+}
+
+.volume-toggle {
+  font-size: 12px;
+  padding: 4px;
+  margin-right: 8px;
+}
+
+.volume-slider {
+  width: 50px;
+}

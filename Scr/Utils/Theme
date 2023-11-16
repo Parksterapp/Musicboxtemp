@@ -1,0 +1,8 @@
+// theme.js
+
+// Define application themes, colors, or other theming variables
+export const theme = {
+  primaryColor: '#0078d4',
+  secondaryColor: '#ff5722',
+  // Add more theme variables as needed
+};

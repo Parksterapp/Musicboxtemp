@@ -1,0 +1,8 @@
+// formatTime.js
+
+export const formatTime = (timestamp) => {
+  // Implement a function to format timestamps as needed
+  // Example: 
+  // const date = new Date(timestamp);
+  // return `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+};

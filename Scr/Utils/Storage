@@ -1,0 +1,19 @@
+// storage.js
+
+export const localStorageKey = 'your_app_local_storage_key';
+
+export const localStorage = {
+  set(key, value) {
+    window.localStorage.setItem(key, JSON.stringify(value));
+  },
+  get(key) {
+    const storedValue = window.localStorage.getItem(key);
+    return storedValue ? JSON.parse(storedValue) : null;
+  },
+  remove(key) {
+    window.localStorage.removeItem(key);
+  },
+  clear() {
+    window.localStorage.clear();
+  },
+};

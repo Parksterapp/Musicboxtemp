@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <!-- Add the title of the event -->
+  <h1>{{ event.title }}</h1>
+  <!-- Add the description of the event -->
+  <p>{{ event.description }}</p>
+  <!-- Add the image of the event -->
+  <img src="{{ event.image }}" alt="{{ event.title }}">
+  <!-- Add the date of the event -->
+  <p>Date: {{ event.date }}</p>
+  <!-- Add the time of the event -->
+  <p>Time: {{ event.time }}</p>
+  <!-- Add the location of the event -->
+  <p>Location: {{ event.location }}</p>
+  <!-- Add the genre of the event -->
+  <p>Genre: {{ event.genre }}</p>
+  <!-- Add the rating of the event -->
+  <p>Rating: {{ event.rating }}</p>
+  <!-- Add the artist of the event -->
+  <h2>Artist</h2>
+  <p><a href="{{ url_for('artist_detail', artist_id=event.artist.id) }}">{{ event.artist.name }}</a></p>
+{% endblock %}

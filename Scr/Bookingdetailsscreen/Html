@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Booking Details</title>
+  <link rel="stylesheet" type="text/css" href="booking.css">
+</head>
+<body>
+  <div class="booking-details">
+    <h1>Artist Information</h1>
+    <div class="artist-info">
+      <!-- Display artist information here -->
+    </div>
+    <h1>Availability Calendar</h1>
+    <div id="calendar"></div>
+    <h1>Booking Options</h1>
+    <div class="booking-options">
+      <!-- Display booking options here -->
+    </div>
+  </div>
+
+  <script src="booking.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Add the title of the app -->
+  <title>MusicBox</title>
+  <!-- Add the link to the stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Add the header element -->
+  <header>
+    <!-- Add the logo image -->
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="MusicBox Logo">
+    <!-- Add the name of the app -->
+    <h1>MusicBox</h1>
+  </header>
+  <!-- Add the nav element -->
+  <nav>
+    <!-- Add the navigation links -->
+    <ul>
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('artist_list') }}">Artists</a></li>
+      <li><a href="{{ url_for('event_list') }}">Events</a></li>
+      <li><a href="{{ url_for('user_list') }}">Users</a></li>
+    </ul>
+  </nav>
+  <!-- Add the main element -->
+  <main>
+    <!-- Add the block tag for the content -->
+    {% block content %}
+    {% endblock %}
+  </main>
+  <!-- Add the footer element -->
+  <footer>
+    <!-- Add the information and the links about the app -->
+    <p>MusicBox is a platform for live music experiences. Discover, book, and attend live music events near you.</p>
+    <ul>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Terms</a></li>
+      <li><a href="#">Privacy</a></li>
+    </ul>
+  </footer>
+  <script src="script.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+    </html>
+    

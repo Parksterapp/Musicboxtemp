@@ -1,0 +1,11 @@
+// Example using IndexedDB
+const DB_NAME = 'musicAppDB';
+const DB_VERSION = 1;
+const SONG_STORE_NAME = 'songs';
+
+const request = indexedDB.open(DB_NAME, DB_VERSION);
+
+request.onupgradeneeded = (event) => {
+  const db = event.target.result;
+  db.createObjectStore(SONG_STORE_NAME, { keyPath: 'id' });
+};

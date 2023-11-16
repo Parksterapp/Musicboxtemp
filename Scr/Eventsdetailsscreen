@@ -1,0 +1,79 @@
+// Java (Android)
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ExploreEventsFragment extends Fragment {
+    // Event data
+    private List<Event> events = new ArrayList<>();
+    private EventAdapter eventAdapter;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_explore_events, container, false);
+
+        // Initialize ListView and EventAdapter
+        ListView eventListView = rootView.findViewById(R.id.eventListView);
+        eventAdapter = new EventAdapter(getContext(), events);
+        eventListView.setAdapter(eventAdapter);
+
+        // Set click listener for event item
+        eventListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                // Get selected event
+                Event selectedEvent = events.get(position);
+
+                // Open event details screen
+                openEventDetails(selectedEvent);
+            }
+        });
+
+        // Fetch events from API or database
+        fetchEvents();
+
+        return rootView;
+    }
+
+    private void fetchEvents() {
+        // Fetch events data from API or database
+        // ...
+        // Populate events list
+        events.add(new Event("Concert 1", "Artist 1, Artist 2", "Venue 1", "2023-11-05", true));
+        events.add(new Event("Concert 2", "Artist 3, Artist 4", "Venue 2", "2023-11-07", true));
+        events.add(new Event("Gig 1", "Artist 5", "Venue 3", "2023-11-08", true));
+
+        // Notify the adapter that data has changed
+        eventAdapter.notifyDataSetChanged();
+    }
+
+    private void openEventDetails(Event event) {
+        // Open event details screen and pass event data
+        EventDetailsFragment eventDetailsFragment = new EventDetailsFragment();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("event", event);
+        eventDetailsFragment.setArguments(bundle);
+
+        // Navigate to event details screen
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("event", event);
+        eventDetailsFragment.setArguments(bundle);
+
+        // Navigate to event details screen
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragmentContainer, eventDetailsFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+}

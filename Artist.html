@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <!-- Add the name of the artist -->
+  <h1>{{ artist.name }}</h1>
+  <!-- Add the bio of the artist -->
+  <p>{{ artist.bio }}</p>
+  <!-- Add the image of the artist -->
+  <img src="{{ artist.image }}" alt="{{ artist.name }}">
+  <!-- Add the genre of the artist -->
+  <p>Genre: {{ artist.genre }}</p>
+  <!-- Add the rating of the artist -->
+  <p>Rating: {{ artist.rating }}</p>
+  <!-- Add the events of the artist -->
+  <h2>Events</h2>
+  <ul>
+    {% for event in artist.events %}
+      <li><a href="{{ url_for('event_detail', event_id=event.id) }}">{{ event.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

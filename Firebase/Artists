@@ -1,0 +1,77 @@
+import React, { useState, useEffect } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+
+const ArtistProfile = ({ artist }) => {
+  const [isFollowing, setIsFollowing] = useState(false);
+  const [followersCount, setFollowersCount] = useState(0);
+
+  useEffect(() => {
+    const currentUser = firebase.auth().currentUser;
+
+    // Check if the current user is already following the artist
+    const isUserFollowing = artist.followers.includes(currentUser.uid);
+    setIsFollowing(isUserFollowing);
+
+    // Update the followers count
+    setFollowersCount(artist.followers.length);
+  }, []);
+
+  const handleFollow = () => {
+    const currentUser = firebase.auth().currentUser;
+    const artistRef = firebase.firestore().collection('artists').doc(artist.id);
+
+    if (isFollowing) {
+      // Remove the current user from the artist's followers
+      artistRef.update({
+        followers: firebase.firestore.FieldValue.arrayRemove(currentUser.uid),
+      });
+      setFollowersCount(followersCount - 1);
+    } else {
+      // Add the current user to the artist's followers
+      artistRef.update({
+        followers: firebase.firestore.FieldValue.arrayUnion(currentUser.uid),
+      });
+      setFollowersCount(followersCount + 1);
+    }
+
+    setIsFollowing(!isFollowing);
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.artistName}>{artist.name}</Text>
+      <Text style={styles.bio}>{artist.bio}</Text>
+      <Text style={styles.followersCount}>{followersCount} followers</Text>
+      <Button
+        title={isFollowing ? 'Unfollow' : 'Follow'}
+        onPress={handleFollow}
+        color={isFollowing ? 'red' : 'green'}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  artistName: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  bio: {
+    fontSize: 16,
+    marginBottom: 20,
+  },
+  followersCount: {
+    fontSize: 14,
+    marginBottom: 10,
+  },
+});
+
+export default ArtistProfile;

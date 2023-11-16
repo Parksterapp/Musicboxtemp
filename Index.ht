@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <!-- Add the title of the home page -->
+  <h1>Welcome to MusicBox</h1>
+  <!-- Add the introduction of the home page -->
+  <p>MusicBox is a platform for live music experiences. Discover, book, and attend live music events near you.</p>
+  <!-- Add the counts of different records in the database -->
+  <ul>
+    <li>There are {{ num_books }} books in the library.</li>
+    <li>There are {{ num_authors }} authors in the library.</li>
+    <li>There are {{ num_events }} events in the library.</li>
+    <li>There are {{ num_users }} users in the library.</li>
+  </ul>
+{% endblock %}

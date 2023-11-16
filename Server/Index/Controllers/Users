@@ -1,0 +1,27 @@
+// users.js
+
+const User = require('../models/user');
+
+// @desc Get all users
+// @route GET /api/users
+async function getUsers(req, res) {
+  try {
+    const users = await User.find();
+    res.status(200).json(users);  
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({message: 'Server error'});
+  }
+}
+
+// @desc Create new user
+// @route POST /api/users
+async function createUser(req, res) {
+  // ...
+}
+
+module.exports = {
+  getUsers,
+  createUser
+  // etc
+}

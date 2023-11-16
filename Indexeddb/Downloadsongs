@@ -1,0 +1,14 @@
+function downloadSong(song) {
+  const transaction = db.transaction(SONG_STORE_NAME, 'readwrite');
+  const store = transaction.objectStore(SONG_STORE_NAME);
+
+  const request = store.add(song);
+
+  request.onsuccess = (event) => {
+    console.log('Song downloaded successfully');
+  };
+
+  request.onerror = (event) => {
+    console.error('Failed to download song', event.target.error);
+  };
+}

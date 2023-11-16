@@ -1,0 +1,29 @@
+.song-details {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.song-info {
+  flex: 1;
+}
+
+.song-title {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.song-artist {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.song-album {
+  font-size: 1rem;
+  color: #777;
+}
+
+.song-duration {
+  font-size: 1rem;
+  color: #777;
+}

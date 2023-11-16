@@ -1,0 +1,69 @@
+// Create an array to store the songs in the queue
+var queue = [];
+
+// Function to display the upcoming songs in the queue
+function displayUpNext() {
+  var upNextContainer = document.getElementById('up-next');
+  upNextContainer.innerHTML = '';
+  
+  if (queue.length > 0) {
+    var upNextHeading = document.createElement('h3');
+    upNextHeading.textContent = 'Up Next:';
+    upNextContainer.appendChild(upNextHeading);
+    
+    var upNextList = document.createElement('ul');
+    upNextContainer.appendChild(upNextList);
+    
+    for (var i = 0; i < queue.length; i++) {
+      var songItem = document.createElement('li');
+      songItem.textContent = queue[i];
+      upNextList.appendChild(songItem);
+    }
+  } else {
+    upNextContainer.textContent = 'No songs in the queue';
+  }
+}
+
+// Function to add a song to the queue
+function addSongToQueue(song) {
+  queue.push(song);
+  displayUpNext();
+}
+
+// Function to remove a specific song from the queue
+function removeSongFromQueue(song) {
+  var index = queue.indexOf(song);
+  if (index !== -1) {
+    queue.splice(index, 1);
+    displayUpNext();
+  }
+}
+
+// Function to shuffle the queue
+function shuffleQueue() {
+  for (var i = queue.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = queue[i];
+    queue[i] = queue[j];
+    queue[j] = temp;
+  }
+  displayUpNext();
+}
+
+// Function to repeat songs in the queue
+function repeatQueue() {
+  var repeatedQueue = queue.slice();
+  queue = repeatedQueue.concat(queue);
+  displayUpNext();
+}
+
+// Example usage
+addSongToQueue("Song 1");
+addSongToQueue("Song 2");
+addSongToQueue("Song 3");
+
+removeSongFromQueue("Song 2");
+
+shuffleQueue();
+
+repeatQueue();

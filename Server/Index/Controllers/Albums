@@ -1,0 +1,50 @@
+// Get all albums
+async function getAlbums(req, res) {
+  try {
+    const albums = await Album.find();
+    res.status(200).json(albums);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({message: 'Server error'});
+  }
+}
+
+// Get single album
+async function getAlbum(req, res) {
+  try {
+    const album = await Album.findById(req.params.id);
+
+    if (!album) {
+      return res.status(404).json({message: 'Album not found'});
+    }
+
+    res.json(album);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({message: 'Server error'});
+  }
+}
+
+// Create new album
+async function createAlbum(req, res) {
+  // ...
+}
+
+// Update album
+async function updateAlbum(req, res) {
+  // ... 
+}
+
+// Delete album
+async function deleteAlbum(req, res) {
+  // ...
+}
+
+// Exports
+module.exports = {
+  getAlbums,
+  getAlbum,
+  createAlbum,
+  updateAlbum,
+  deleteAlbum
+}

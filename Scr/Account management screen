@@ -1,0 +1,12 @@
+// Java (Android)
+// Edit profile screen
+public class EditProfileActivity extends AppCompatActivity {
+    private EditText nameEditText;
+    private EditText bioEditText;
+    // ...
+    
+    // Save profile changes
+    public void saveProfileChanges(View view) {
+        String newName = nameEditText.getText().toString();
+        String newBio = bioEditText.getText().toString();
+        // Update profile information in the

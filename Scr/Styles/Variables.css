@@ -1,0 +1,9 @@
+/* variables.css */
+
+/* Define variables and reuse them throughout the application */
+:root {
+  --primary-color: #0078d4; /* Example primary color */
+  --secondary-color: #ff5722; /* Example secondary color */
+}
+
+/* You can define other variables here */

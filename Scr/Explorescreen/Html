@@ -1,0 +1,49 @@
+<div class="explore-container">
+  <h2>Trending Artists</h2>
+  <div class="artist-list">
+    <!-- Display trending artists here -->
+    <div class="artist-item">
+      <img src="artist1.jpg" alt="Artist 1">
+      <h3>Artist 1</h3>
+      <p>Genre: Rock</p>
+      <button class="follow-btn">Follow</button>
+    </div>
+    <!-- Repeat artist items for the list -->
+  </div>
+
+  <h2>Popular Genres</h2>
+  <div class="genre-list">
+    <!-- Display popular genres here -->
+    <div class="genre-item">
+      <img src="genre1.jpg" alt="Genre 1">
+      <h3>Genre 1</h3>
+      <p>Artists: 10</p>
+      <button class="explore-btn">Explore</button>
+    </div>
+    <!-- Repeat genre items for the list -->
+  </div>
+
+  <h2>New Releases</h2>
+  <div class="release-list">
+    <!-- Display new releases here -->
+    <div class="release-item">
+      <img src="release1.jpg" alt="Release 1">
+      <h3>Release 1</h3>
+      <p>Artist: Artist 2</p>
+      <button class="play-btn">Play</button>
+    </div>
+    <!-- Repeat release items for the list -->
+  </div>
+
+  <h2>Recommended Artists</h2>
+  <div class="recommended-list">
+    <!-- Display recommended artists here -->
+    <div class="artist-item">
+      <img src="artist3.jpg" alt="Artist 3">
+      <h3>Artist 3</h3>
+      <p>Genre: Pop</p>
+      <button class="follow-btn">Follow</button>
+    </div>
+    <!-- Repeat artist items for the list -->
+  </div>
+</div>

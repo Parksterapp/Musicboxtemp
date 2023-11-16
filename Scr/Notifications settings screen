@@ -1,0 +1,19 @@
+// Java (Android)
+// Notification settings screen
+public class NotificationSettingsActivity extends AppCompatActivity {
+    private Switch updateSwitch;
+    private Switch recommendationSwitch;
+    private Switch newReleaseSwitch;
+    
+    // Save notification preferences
+    public void saveNotificationPreferences(View view) {
+        Map<String, Boolean> preferences = new HashMap<>();
+        preferences.put("update", updateSwitch.isChecked());
+        preferences.put("recommendation", recommendationSwitch.isChecked());
+        preferences.put("newRelease", newReleaseSwitch.isChecked());
+        SharedPreferences preferences = getSharedPreferences("AppSettings", Context.MODE_PRIVATE);
+        preferences.edit().putBoolean("notificationPreferences", preferences).apply();
+        // Apply notification preferences
+        // ...
+    }
+}

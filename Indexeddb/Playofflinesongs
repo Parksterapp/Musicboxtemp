@@ -1,0 +1,16 @@
+function getOfflineLibrary() {
+  const transaction = db.transaction(SONG_STORE_NAME, 'readonly');
+  const store = transaction.objectStore(SONG_STORE_NAME);
+
+  const request = store.getAll();
+
+  request.onsuccess = (event) => {
+    const songs = event.target.result;
+    console.log('Offline library:', songs);
+    // Use a media player to play the songs
+  };
+
+  request.onerror = (event) => {
+    console.error('Failed to get offline library', event.target.error);
+  };
+}

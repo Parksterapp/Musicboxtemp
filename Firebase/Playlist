@@ -1,0 +1,78 @@
+// Import necessary Firebase modules
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Get a reference to the Firestore database
+const db = firebase.firestore();
+
+// Function to create a new playlist
+const createPlaylist = async (name, description, privacy, songs) => {
+  try {
+    // Add a new document to the "playlists" collection
+    const playlistRef = await db.collection('playlists').add({
+      name,
+      description,
+      privacy,
+      songs,
+      creatorID: firebase.auth().currentUser.uid,
+      sharedWith: [],
+      collaborators: [],
+    });
+
+    console.log('Playlist created with ID:', playlistRef.id);
+  } catch (error) {
+    console.error('Error creating playlist:', error);
+  }
+};
+
+// Function to add a song to a playlist
+const addSongToPlaylist = async (playlistID, song) => {
+  try {
+    // Get the playlist document
+    const playlistRef = db.collection('playlists').doc(playlistID);
+    const playlist = await playlistRef.get();
+
+    // Update the "songs" array field of the playlist document
+    const updatedSongs = [...playlist.data().songs, song];
+    await playlistRef.update({ songs: updatedSongs });
+
+    console.log('Song added to playlist.');
+  } catch (error) {
+    console.error('Error adding song to playlist:', error);
+  }
+};
+
+// Function to remove a song from a playlist
+const removeSongFromPlaylist = async (playlistID, song) => {
+  try {
+    // Get the playlist document
+    const playlistRef = db.collection('playlists').doc(playlistID);
+    const playlist = await playlistRef.get();
+
+    // Update the "songs" array field of the playlist document
+    const updatedSongs = playlist.data().songs.filter(item => item !== song);
+    await playlistRef.update({ songs: updatedSongs });
+
+    console.log('Song removed from playlist.');
+  } catch (error) {
+    console.error('Error removing song from playlist:', error);
+  }
+};
+
+// Function to reorder songs in a playlist
+const reorderSongsInPlaylist = async (playlistID, newSongsOrder) => {
+  try {
+    // Get the playlist document
+    const playlistRef = db.collection('playlists').doc(playlistID);
+
+    // Update the "songs" array field of the playlist document
+    await playlistRef.update({ songs: newSongsOrder });
+
+    console.log('Songs reordered in playlist.');
+  } catch (error) {
+    console.error('Error reordering songs in playlist:', error);
+  }
+};

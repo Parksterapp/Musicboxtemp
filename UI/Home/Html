@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Music App</title>
+  <style>
+    /* CSS styling for the app */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      color: #333;
+    }
+    
+    header {
+      background-color: #fff;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    #search-bar {
+      width: 300px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    #featured-content {
+      margin: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .artist {
+      text-align: center;
+    }
+    
+    .artist img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    
+    .artist h3 {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+    
+    .artist p {
+      color: #888;
+    }
+    
+    #genres, #recommended-playlists, #new-releases {
+      margin: 20px;
+    }
+    
+    #genres h2, #recommended-playlists h2, #new-releases h2 {
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+    
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    li {
+      margin-bottom: 10px;
+    }
+    
+    .album {
+      text-align: center;
+    }
+    
+    .album img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    
+    .album h3 {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+    
+    .album p {
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Music App</h1>
+    <input type="text" id="search-bar" placeholder="Search">
+  </header>
+
+  <section id="featured-content">
+    <div class="artist">
+      <img src="artist1.jpg" alt="Artist 1">
+      <h3>Artist 1</h3>
+      <p>Genre</p>
+    </div>
+    <div class="artist">
+      <img src="artist2.jpg" alt="Artist 2">
+      <h3>Artist 2</h3>
+      <p>Genre</p>
+    </div>
+    <div class="artist">
+      <img src="artist3.jpg" alt="Artist 3">
+      <h3>Artist 3</h3>
+      <p>Genre</p>
+    </div>
+  </section>
+
+  <section id="genres">
+    <h2>Genres</h2>
+    <ul>
+      <li>Genre 1</li>
+      <li>Genre 2</li>
+      <li>Genre 3</li>
+      <li>Genre 4</li>
+      <li>Genre 5</li>
+    </ul>
+  </section>
+
+  <section id="recommended-playlists">
+    <h2>Recommended Playlists</h2>
+    <ul>
+      <li>Playlist 1</li>
+      <li>Playlist 2</li>
+      <li>Playlist 3</li>
+      <li>Playlist 4</li>
+      <li>Playlist 5</li>
+    </ul>
+  </section>
+
+  <section id="new-releases">
+    <h2>New Releases</h2>
+    <div class="album">
+      <img src="album1.jpg" alt="Album 1">
+      <h3>Album 1</h3>
+      <p>Artist</p>
+    </div>
+    <div class="album">
+      <img src="album2.jpg" alt="Album 2">
+      <h3>Album 2</h3>
+      <p>Artist</p>
+    </div>
+    <div class="album">
+      <img src="album3.jpg" alt="Album 3">
+      <h3>Album <div class="album">
+  <img src="album3.jpg" alt="Album 3">
+  <h3>Album 3</h3>
+  <p>Artist</p>
+</div>
+
+<section id="featured-artists">
+  <h2>Featured Artists</h2>
+  <div class="artist">
+    <img src="artist1.jpg" alt="Artist 1">
+    <h3>Artist 1</h3>
+    <p>Genre</p>
+  </div>
+  <div class="artist">
+    <img src="artist3.jpg" alt="Artist 3">
+    <h3>Artist 3</h3>
+    <p>Genre</p>
+  </div>
+</section>

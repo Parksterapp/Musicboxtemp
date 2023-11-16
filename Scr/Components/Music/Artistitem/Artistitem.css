@@ -1,0 +1,24 @@
+.artist-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.artist-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.artist-item h3 {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
+.artist-item p {
+  font-size: 1rem;
+  color: #888;
+}

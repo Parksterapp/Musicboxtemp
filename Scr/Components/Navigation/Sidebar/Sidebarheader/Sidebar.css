@@ -1,0 +1,9 @@
+/* Your SidebarHeader styling here */
+.sidebar-header {
+  padding: 20px;
+  text-align: center;
+  background-color: #333;
+  color: white;
+}
+
+/* Add any other styles you need */

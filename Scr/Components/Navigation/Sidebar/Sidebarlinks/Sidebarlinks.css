@@ -1,0 +1,14 @@
+/* Your SidebarLinks styling here */
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-link {
+  padding: 10px;
+  text-align: center;
+  background-color: #444;
+  color: white;
+}
+
+/* Add any other styles you need */

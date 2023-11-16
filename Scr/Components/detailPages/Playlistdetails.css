@@ -1,0 +1,26 @@
+/* Playlist Details Container */
+.playlist-details {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+/* Playlist Information */
+.playlist-info {
+  flex: 1;
+}
+
+.playlist-title {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.playlist-owner {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.playlist-description {
+  font-size: 1rem;
+  color: #777;
+}

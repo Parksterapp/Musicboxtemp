@@ -1,0 +1,12 @@
+.lyrics-container {
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.lyrics-line {
+  padding: 10px;
+}
+
+.lyrics-line.active {
+  background-color: yellow;
+}

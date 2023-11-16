@@ -1,0 +1,28 @@
+public class EventDetailsFragment extends Fragment {
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_event_details, container, false);
+
+        // Get event data from arguments
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            Event event = (Event) bundle.getSerializable("event");
+
+            // Display event details on the screen
+            TextView eventNameTextView = rootView.findViewById(R.id.eventNameTextView);
+            eventNameTextView.setText(event.getName());
+
+            TextView eventArtistsTextView = rootView.findViewById(R.id.eventArtistsTextView);
+            eventArtistsTextView.setText(event.getArtists());
+
+            TextView eventVenueTextView = rootView.findViewById(R.id.eventVenueTextView);
+            eventVenueTextView.setText(event.getVenue());
+
+            TextView eventDateTextView = rootView.findViewById(R.id.eventDateTextView);
+            eventDateTextView.setText(event.getDate());
+        }
+
+        return rootView;
+    }
+}

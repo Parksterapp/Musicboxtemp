@@ -1,0 +1,21 @@
+# MusicBox App - Client
+
+## Overview
+
+Welcome to the client-side of the MusicBox App. This directory contains the code responsible for the app's user interface and front-end logic.
+
+## Getting Started
+
+Before you begin, make sure you have the following prerequisites installed on your machine:
+
+- [Node.js](https://nodejs.org/): The JavaScript runtime for building the app.
+
+## Installation
+
+1. Clone this repository to your local machine:
+
+   ```shell
+   git clone https://github.com/your-username/musicbox-app.git
+cd client
+npm install
+npm start

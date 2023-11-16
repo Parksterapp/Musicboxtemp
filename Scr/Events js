@@ -1,0 +1,90 @@
+import React from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+
+const EventsScreen = () => {
+  // Assume these data are fetched from an API or database
+  const events = [
+    {
+      id: 1,
+      name: 'Music Festival',
+      location: 'Central Park, New York',
+      date: 'November 10-12, 2023',
+      image: require('./assets/event-image.jpg'),
+    },
+    {
+      id: 2,
+      name: 'Concert Series',
+      location: 'Madison Square Garden, New York',
+      date: 'November 15-17, 2023',
+      image: require('./assets/event-image.jpg'),
+    },
+    {
+      id: 3,
+      name: 'Live Performance',
+      location: 'The Fillmore, San Francisco',
+      date: 'November 20, 2023',
+      image: require('./assets/event-image.jpg'),
+    },
+  ];
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Upcoming Events</Text>
+      {events.map((event) => (
+        <TouchableOpacity
+          key={event.id}
+          style={styles.eventContainer}
+          onPress={() => handleEventPress(event.id)}
+        >
+          <Image source={event.image} style={styles.eventImage} />
+          <View style={styles.eventDetails}>
+            <Text style={styles.eventName}>{event.name}</Text>
+            <Text style={styles.eventLocation}>{event.location}</Text>
+            <Text style={styles.eventDate}>{event.date}</Text>
+          </View>
+        </TouchableOpacity>
+      ))}
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 16,
+  },
+  eventContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  eventImage: {
+    width: 80,
+    height: 80,
+    borderRadius: 8,
+    marginRight: 16,
+  },
+  eventDetails: {
+    flex: 1,
+  },
+  eventName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  eventLocation: {
+    fontSize: 16,
+    marginBottom: 4,
+  },
+  eventDate: {
+    fontSize: 14,
+    color: 'gray',
+  },
+});
+
+export default EventsScreen;

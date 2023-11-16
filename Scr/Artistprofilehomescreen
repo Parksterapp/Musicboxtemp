@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Music App</title>
+  <!-- CSS and other head elements -->
+  <style>
+    /* CSS styles for artist context homepage */
+    .header {
+      background-color: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    .artist-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .artist-card img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+    }
+    .artist-card p {
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+  <script>
+    // JavaScript code for handling artist card click events
+    window.onload = function() {
+      var artistCards = document.querySelectorAll('.artist-card');
+      artistCards.forEach(function(card) {
+        card.addEventListener('click', function() {
+          var artistName = this.querySelector('p').innerText;
+          alert('You clicked on ' + artistName);
+        });
+      });
+    };
+  </script>
+</head>
+<body>
+  <header class="header">
+    <h1>Featured Artists</h1>
+  </header>
+
+  <section class="artists-section">
+    <div class="artist-card">
+      <img src="artist1.jpg" alt="Artist 1">
+      <p>Artist 1</p>
+    </div>
+    <div class="artist-card">
+      <img src="artist2.jpg" alt="Artist 2">
+      <p>Artist 2</p>
+    </div>
+    <div class="artist-card">
+      <img src="artist3.jpg" alt="Artist 3">
+      <p>Artist 3</p>
+    </div>
+    <!-- Add more artist cards as needed -->
+  </section>
+
+  // JavaScript code for handling artist context homepage
+
+// Function to handle artist card click events
+function handleArtistCardClick() {
+  var artistCards = document.querySelectorAll('.artist-card');
+  artistCards.forEach(function(card) {
+    card.addEventListener('click', function() {
+      var artistName = this.querySelector('p').innerText;
+      showArtistDetails(artistName);
+      highlightSelectedCard(this);
+      playArtistMusic(artistName);
+    });
+  });
+}
+
+// Function to display artist details
+function showArtistDetails(artistName) {
+  // Retrieve artist details from the server using AJAX or fetch API
+  // Update the DOM to display the artist's name, bio, and photo
+  // Example:
+  var artistBio = getArtistBio(artistName);
+  var artistPhoto = getArtistPhoto(artistName);
+
+  var detailsContainer = document.getElementById('artist-details');
+  detailsContainer.innerHTML = `
+    <h2>${artistName}</h2>
+    <img src="${artistPhoto}" alt="${artistName}">
+    <p>${artistBio}</p>
+  `;
+}
+
+// Function to highlight the selected artist card
+function highlightSelectedCard(selectedCard) {
+  // Remove the highlight from all artist cards
+  var artistCards = document.querySelectorAll('.artist-card');
+  artistCards.forEach(function(card) {
+    card.classList.remove('selected');
+  });
+
+  // Add the highlight to the selected artist card
+  selectedCard.classList.add('selected');
+}
+
+// Function to play the artist's music
+function playArtistMusic(artistName) {
+  // Retrieve the artist's music from the server using AJAX or fetch API
+  // Play the music using an audio player library or HTML5 audio element
+  // Example:
+  var artistMusic = getArtistMusic(artistName);
+  var audioPlayer = document.getElementById('audio-player');
+  audioPlayer.src = artistMusic;
+  audioPlayer.play();
+}
+
+// Function to initialize the artist context homepage
+function initializeArtistContextHomepage() {
+  handleArtistCardClick();
+}
+
+// Call the initialization function when the page loads
+window.onload = function() {
+  initializeArtistContextHomepage();
+};
+</body>
+</html>

@@ -1,0 +1,12 @@
+/* Styles for Event Details */
+.event-details {
+  margin-bottom: 16px;
+}
+
+.event-details h2 {
+  margin-bottom: 8px;
+}
+
+.event-details p {
+  margin-bottom: 4px;
+}

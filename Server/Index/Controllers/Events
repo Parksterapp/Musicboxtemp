@@ -1,0 +1,33 @@
+// Get all events
+async function getEvents(req, res) {
+  // ...
+}
+
+// Get single event
+async function getEvent(req, res) {
+  // ... 
+}
+
+// Create event
+async function createEvent(req, res) {
+  // ...
+}
+
+// Update event
+async function updateEvent(req, res) {
+  // ...
+} 
+
+// Delete event
+async function deleteEvent(req, res) {
+  // ...
+}
+
+// Exports 
+module.exports = {
+  getEvents,
+  getEvent,
+  createEvent,
+  updateEvent,
+  deleteEvent
+}

@@ -1,0 +1,65 @@
+class RadioStation:
+    def __init__(self, genre, songs):
+        self.genre = genre
+        self.songs = songs
+        self.current_song = None
+        self.liked_songs = []
+        self.disliked_songs = []
+
+    def play_song(self):
+        if self.current_song is None:
+            self.current_song = self.songs[0]
+        else:
+            current_song_index = self.songs.index(self.current_song)
+            if current_song_index < len(self.songs) - 1:
+                self.current_song = self.songs[current_song_index + 1]
+            else:
+                self.current_song = None
+
+        if self.current_song is not None:
+            print(f"Now playing: {self.current_song}")
+        else:
+            print("No more songs in this station.")
+
+    def skip_song(self):
+        if self.current_song is not None:
+            current_song_index = self.songs.index(self.current_song)
+            if current_song_index < len(self.songs) - 1:
+                self.current_song = self.songs[current_song_index + 1]
+                print(f"Skipped to: {self.current_song}")
+            else:
+                self.current_song = None
+                print("No more songs in this station.")
+
+    def like_song(self):
+        if self.current_song is not None:
+            self.liked_songs.append(self.current_song)
+            print(f"Liked song: {self.current_song}")
+
+    def dislike_song(self):
+        if self.current_song is not None:
+            self.disliked_songs.append(self.current_song)
+            print(f"Disliked song: {self.current_song}")
+
+    def get_liked_songs(self):
+        return self.liked_songs
+
+    def get_disliked_songs(self):
+        return self.disliked_songs
+
+
+# Example usage:
+pop_songs = ["Song 1", "Song 2", "Song 3", "Song 4", "Song 5"]
+pop_station = RadioStation("Pop", pop_songs)
+
+pop_station.play_song()  # Now playing: Song 1
+pop_station.skip_song()  # Skipped to: Song 2
+pop_station.like_song()  # Liked song: Song 2
+pop_station.skip_song()  # Skipped to: Song 3
+pop_station.dislike_song()  # Disliked song: Song 3
+pop_station.play_song()  # Now playing: Song 4
+pop_station.skip_song()  # Skipped to: Song 5
+pop_station.skip_song()  # No more songs in this station.
+
+print("Liked songs:", pop_station.get_liked_songs())
+print("Disliked songs:", pop_station.get_disliked_songs())

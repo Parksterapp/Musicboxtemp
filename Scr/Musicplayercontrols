@@ -1,0 +1,83 @@
+class MusicPlayer:
+    def __init__(self):
+        self.playing = False
+        self.paused = False
+        self.current_song = None
+        self.shuffle_mode = False
+        self.repeat_mode = False
+        self.equalizer_presets = ["Flat", "Bass Boost", "Treble Boost", "Rock", "Pop", "Jazz"]
+        self.current_equalizer_preset = "Flat"
+
+    def play(self, song):
+        if not self.playing:
+            self.playing = True
+            self.paused = False
+            self.current_song = song
+            print(f"Now playing: {self.current_song}")
+        elif self.paused:
+            self.paused = False
+            print("Resumed playback.")
+        else:
+            print("Music is already playing.")
+
+    def pause(self):
+        if self.playing and not self.paused:
+            self.paused = True
+            print("Playback paused.")
+        elif not self.playing:
+            print("No music is currently playing.")
+        else:
+            print("Music is already paused.")
+
+    def skip(self):
+        if self.playing:
+            print("Skipping to next song...")
+            # Logic to skip to the next song
+            print("Skipped to next song.")
+        else:
+            print("No music is currently playing.")
+
+    def toggle_shuffle(self):
+        self.shuffle_mode = not self.shuffle_mode
+        if self.shuffle_mode:
+            print("Shuffle mode enabled.")
+        else:
+            print("Shuffle mode disabled.")
+
+    def toggle_repeat(self):
+        self.repeat_mode = not self.repeat_mode
+        if self.repeat_mode:
+            print("Repeat mode enabled.")
+        else:
+            print("Repeat mode disabled.")
+
+    def set_equalizer_preset(self, preset):
+        if preset in self.equalizer_presets:
+            self.current_equalizer_preset = preset
+            print(f"Equalizer preset set to: {preset}")
+        else:
+            print("Invalid equalizer preset.")
+
+    def get_current_equalizer_preset(self):
+        return self.current_equalizer_preset
+
+
+# Example usage:
+music_player = MusicPlayer()
+
+music_player.play("Song 1")  # Now playing: Song 1
+music_player.pause()  # Playback paused.
+music_player.play("Song 1")  # Resumed playback.
+music_player.skip()  # Skipping to next song...
+# Logic to skip to the next song
+music_player.skip()  # Skipped to next song.
+
+music_player.toggle_shuffle()  # Shuffle mode enabled.
+music_player.toggle_shuffle()  # Shuffle mode disabled.
+
+music_player.toggle_repeat()  # Repeat mode enabled.
+music_player.toggle_repeat()  # Repeat mode disabled.
+
+music_player.set_equalizer_preset("Rock")  # Equalizer preset set to: Rock
+
+print("Current equalizer preset:", music_player.get_current_equalizer_pr

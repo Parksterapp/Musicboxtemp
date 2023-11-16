@@ -1,0 +1,9 @@
+/* globals.css */
+
+/* Apply global styles to the entire application */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+/* Define any other global styles here */

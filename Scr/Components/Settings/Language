@@ -1,0 +1,15 @@
+// Java (Android)
+// Language selection screen
+public class LanguageSelectionActivity extends AppCompatActivity {
+    // Language options
+    private String[] languages = {"English", "Spanish", "French", "German"};
+    
+    // Language selection action
+    public void selectLanguage(View view) {
+        String selectedLanguage = languages[view.getTag()];
+        SharedPreferences preferences = getSharedPreferences("AppSettings", Context.MODE_PRIVATE);
+        preferences.edit().putString("languagePreference", selectedLanguage).apply();
+        // Apply language changes throughout the app
+        // ...
+    }
+}

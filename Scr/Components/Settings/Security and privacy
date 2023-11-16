@@ -1,0 +1,10 @@
+// Java (Android)
+// Secure authentication
+public void authenticateUser(String username, String password) {
+    // Send login request over HTTPS
+    // ...
+    // Verify password securely (e.g., using bcrypt)
+    // ...
+    // Set user session or access token
+    // ...
+}

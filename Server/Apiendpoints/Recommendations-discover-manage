@@ -1,0 +1,78 @@
+const express = require('express');
+const app = express();
+app.use(express.json());
+
+const { Song, User } = require('./models');
+
+// Get personalized song recommendations for a user
+app.get('/api/recommendations/:userId', async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const user = await User.findById(userId).populate('likedSongs');
+    const likedGenres = user.likedSongs.map((song) => song.genre);
+
+    const recommendations = await Song.find({ genre: { $in: likedGenres } })
+      .limit(5)
+      .exec();
+
+    res.json(recommendations);
+  } catch (error) {
+    console.error('Failed to get recommendations', error);
+    res.status(500).json({ error: 'Failed to get recommendations' });
+  }
+});
+
+// Get new music suggestions for a user
+app.get('/api/discover/:userId', async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const user = await User.findById(userId).populate('likedSongs');
+    const likedSongsIds = user.likedSongs.map((song) => song._id);
+
+    const suggestions = await Song.find({ _id: { $nin: likedSongsIds } })
+      .limit(10)
+      .exec();
+
+    res.json(suggestions);
+  } catch (error) {
+    console.error('Failed to get new music suggestions', error);
+    res.status(500).json({ error: 'Failed to get new music suggestions' });
+  }
+});
+
+// Add a song to a user's liked songs list
+app.post('/api/liked-songs/:userId', async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const { title, artist, genre } = req.body;
+
+    const song = new Song({ title, artist, genre });
+    await song.save();
+
+    const user = await User.findByIdAndUpdate(
+      userId,
+      { $push: { likedSongs: song._id } },
+      { new: true }
+    );
+
+    res.json(user);
+  } catch (error) {
+    console.error('Failed to add song to liked songs', error);
+    res.status(500).json({ error: 'Failed to add song to liked songs' });
+  }
+});
+
+// Get a user's liked songs
+app.get('/api/liked-songs/:userId', async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const user = await User.findById(userId).populate('likedSongs');
+    res.json(user.likedSongs);
+  } catch (error) {
+    console.error('Failed to get liked songs', error);
+    res.status(500).json({ error: 'Failed to get liked songs' });
+  }
+});
+
+app.listen(3000, () => {
+  console.log('Server is
